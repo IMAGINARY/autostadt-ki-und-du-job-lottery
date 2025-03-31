@@ -1,0 +1,185 @@
+:root {
+  --target-width: 1920;
+  --target-height: 1080;
+  --target-font-size: 220;
+  --target-line-height: 250;
+  --target-margin-top: calc(
+    196 - 47
+  ); /* At 1920x1080, the top of an uppercase 'E' should be 196px away from the top of screen. */
+  --body-width: calc(
+    min(100vw, var(--target-width) * 100vh / var(--target-height))
+  );
+  --body-height: calc(
+    min(100vh, var(--target-height) * 100vw / var(--target-width))
+  );
+  --font-size: calc(
+    var(--body-width) * var(--target-font-size) / var(--target-width)
+  );
+  --line-height: calc(
+    var(--body-width) * var(--target-line-height) / var(--target-width)
+  );
+  --margin-top: calc(
+    var(--body-width) * var(--target-margin-top) / var(--target-width)
+  );
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("autostadt-ki-und-du/fonts/SpaceGrotesk-VariableFont_wght.ttf")
+    format("truetype");
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  position: relative;
+  width: var(--body-width);
+  height: var(--body-height);
+  margin: 0;
+  overflow: hidden;
+  background-color: white;
+  text-align: center;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#words-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-size: var(--font-size);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: bold;
+  color: black;
+  text-transform: uppercase;
+  line-height: var(--line-height);
+  margin-top: var(--margin-top);
+}
+
+#words {
+  white-space: nowrap;
+}
+
+.qrcode,
+#language-button,
+#fullscreen-button {
+  display: none;
+}
+
+#underlays,
+#overlays {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#underlays > div,
+#overlays > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#underlays > div:nth-child(1) {
+  background-image: url("autostadt-ki-und-du/images/background.svg");
+  background-size: contain;
+}
+
+body #overlays {
+  transition-delay: 0s;
+  transition-duration: 0.25s;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-behavior: allow-discrete;
+  /*  background-color: #0f07;*/
+}
+
+body.running #overlays {
+  opacity: 0;
+}
+
+body:not(.running) #overlays {
+  opacity: 100%;
+}
+
+@keyframes fadeIn {
+  0%,
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+body #overlays > div {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  opacity: 100;
+}
+
+body.running #overlays > div {
+  animation-name: none;
+  opacity: 100;
+}
+
+body:not(.running) #overlays > div {
+  opacity: 100%;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  5%,
+  95% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+body #overlays > div > div {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: fade;
+  animation-delay: 0s;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+body #overlays > div:nth-last-child(1) > div {
+  top: calc(var(--body-width) * 60 / var(--target-width));
+  left: calc(var(--body-width) * 160 / var(--target-width));
+  width: calc(var(--body-width) * 364 / var(--target-width));
+  height: calc(var(--body-width) * 189 / var(--target-width));
+  background-image: url("autostadt-ki-und-du/images/speech-bubble-1.png");
+  animation-delay: 0s;
+}
+
+body #overlays > div:nth-last-child(2) > div {
+  top: calc(var(--body-width) * 833 / var(--target-width));
+  left: calc(var(--body-width) * 1424 / var(--target-width));
+  width: calc(var(--body-width) * 336 / var(--target-width));
+  height: calc(var(--body-width) * 205 / var(--target-width));
+  background-image: url("autostadt-ki-und-du/images/speech-bubble-2.png");
+  animation-delay: 2s;
+}

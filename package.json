@@ -1,0 +1,15 @@
+{
+  "name": "autostadt-ki-und-du-job-lottery",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=18.16.0"
+  },
+  "dependencies": {
+    "cpx": "^1.5.0",
+    "tiged": "^2.12.7",
+    "shx": "^0.4.0"
+  },
+  "scripts": {
+    "build": "shx rm -rf ./dist && tiged github:IMAGINARY/InnovationGenerator#fe2c7947c57a6f77901e3982f60813d47a31af85 --force dist && shx cp -R ./extras/. ./dist/."
+  }
+}

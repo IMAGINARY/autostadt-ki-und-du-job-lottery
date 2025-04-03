@@ -1,6 +1,6 @@
 # autostadt-ki-und-du-job-lottery
 
-Autostadt "KI und Du" version of the [Innovation Generator](https://github.com/IMAGINARY/InnovationGenerator/) exhibit (working title: "Job Lottery").
+[Autostadt "KI und Du" version](https://imaginary.github.io/autostadt-ki-und-du-job-lottery/?html=true) of the [Innovation Generator](https://github.com/IMAGINARY/InnovationGenerator/) exhibit (working title: "Job Lottery").
 
 ## Building
 

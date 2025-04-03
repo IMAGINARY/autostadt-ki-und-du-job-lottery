@@ -10,6 +10,6 @@
     "shx": "^0.4.0"
   },
   "scripts": {
-    "build": "shx rm -rf ./dist && tiged github:IMAGINARY/InnovationGenerator#fe2c7947c57a6f77901e3982f60813d47a31af85 --force dist && shx cp -R ./extras/. ./dist/."
+    "build": "shx rm -rf ./dist && tiged github:IMAGINARY/InnovationGenerator#08b59064d3c464c29566e8d38a2681397c82021d --force dist && shx cp -R ./extras/. ./dist/."
   }
 }

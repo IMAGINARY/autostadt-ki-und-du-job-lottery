@@ -1,10 +1,10 @@
 :root {
   --target-width: 1920;
   --target-height: 1080;
-  --target-font-size: 220;
-  --target-line-height: 250;
+  --target-font-size: 160;
+  --target-line-height: 207;
   --target-margin-top: calc(
-    196 - 47
+    279 - 46
   ); /* At 1920x1080, the top of an uppercase 'E' should be 196px away from the top of screen. */
   --body-width: calc(
     min(100vw, var(--target-width) * 100vh / var(--target-height))
@@ -45,7 +45,7 @@ body {
   height: var(--body-height);
   margin: 0;
   overflow: hidden;
-  background-color: white;
+  background-color: rgb(250 236 224);
   text-align: center;
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -125,8 +125,7 @@ body:not(.running) #overlays {
 }
 
 @keyframes fadeIn {
-  0%,
-  90% {
+  0% {
     opacity: 0;
   }
   100% {
@@ -147,48 +146,98 @@ body.running #overlays > div {
 body:not(.running) #overlays > div {
   opacity: 100%;
   animation-name: fadeIn;
-  animation-duration: 10s;
+  animation-delay: 9s;
+  animation-duration: 1s;
 }
 
 @keyframes fade {
   0% {
     opacity: 0;
   }
-  2.5%,
-  75% {
+  1.25%,
+  25% {
     opacity: 100%;
   }
-  77.5%,
+  25.25%,
   100% {
     opacity: 0;
   }
 }
 
-body #overlays > div > div {
+body:not(.running) #overlays > div > div {
   position: absolute;
   background-repeat: no-repeat;
   background-size: contain;
   animation-name: fade;
   animation-delay: 0s;
-  animation-duration: 20s;
+  animation-duration: 40s;
   animation-iteration-count: infinite;
   animation-fill-mode: both;
 }
 
-body #overlays > div:nth-last-child(1) > div {
-  top: calc(var(--body-width) * 60 / var(--target-width));
-  left: calc(var(--body-width) * 160 / var(--target-width));
-  width: calc(var(--body-width) * 364 / var(--target-width));
-  height: calc(var(--body-width) * 189 / var(--target-width));
-  background-image: url("autostadt-ki-und-du/images/speech-bubble-1.png");
-  animation-delay: 0s;
+body:not(.running) #overlays > div:nth-last-child(1) > div {
+  top: calc(var(--body-width) * 37 / var(--target-width));
+  left: calc(var(--body-width) * 1000 / var(--target-width));
+  width: calc(var(--body-width) * 834 / 2 / var(--target-width));
+  height: calc(var(--body-width) * 459 / 2 / var(--target-width));
+  animation-delay: 10s;
 }
 
-body #overlays > div:nth-last-child(2) > div {
-  top: calc(var(--body-width) * 833 / var(--target-width));
-  left: calc(var(--body-width) * 1424 / var(--target-width));
-  width: calc(var(--body-width) * 336 / var(--target-width));
-  height: calc(var(--body-width) * 205 / var(--target-width));
-  background-image: url("autostadt-ki-und-du/images/speech-bubble-2.png");
-  animation-delay: 2s;
+body:not(.running):not(.locale-de) #overlays > div:nth-last-child(1) > div {
+  background-image: url("autostadt-ki-und-du/images/speech-bubble-01-en.png");
+}
+
+body:not(.running).locale-de #overlays > div:nth-last-child(1) > div {
+  background-image: url("autostadt-ki-und-du/images/speech-bubble-01-de.png");
+}
+
+
+body:not(.running) #overlays > div:nth-last-child(2) > div {
+  top: calc(var(--body-width) * 825 / var(--target-width));
+  left: calc(var(--body-width) * 605 / var(--target-width));
+  width: calc(var(--body-width) * 834 / 2 / var(--target-width));
+  height: calc(var(--body-width) * 459 / 2 / var(--target-width));
+  animation-delay: 20s;
+}
+
+body:not(.running):not(.locale-de) #overlays > div:nth-last-child(2) > div {
+  background-image: url("autostadt-ki-und-du/images/speech-bubble-02-en.png");
+}
+
+body:not(.running).locale-de #overlays > div:nth-last-child(2) > div {
+  background-image: url("autostadt-ki-und-du/images/speech-bubble-02-de.png");
+}
+
+
+body:not(.running) #overlays > div:nth-last-child(3) > div {
+  top: calc(var(--body-width) * 37 / var(--target-width));
+  left: calc(var(--body-width) * 324 / var(--target-width));
+  width: calc(var(--body-width) * 834 / 2 / var(--target-width));
+  height: calc(var(--body-width) * 459 / 2 / var(--target-width));
+  animation-delay: 30s;
+}
+
+body:not(.running):not(.locale-de) #overlays > div:nth-last-child(3) > div {
+  background-image: url("autostadt-ki-und-du/images/speech-bubble-03-en.png");
+}
+
+body.locale-de #overlays > div:nth-last-child(3) > div {
+  background-image: url("autostadt-ki-und-du/images/speech-bubble-03-de.png");
+}
+
+
+body:not(.running) #overlays > div:nth-last-child(4) > div {
+  top: calc(var(--body-width) * 844 / var(--target-width));
+  left: calc(var(--body-width) * 1264 / var(--target-width));
+  width: calc(var(--body-width) * 834 / 2 / var(--target-width));
+  height: calc(var(--body-width) * 459 / 2 / var(--target-width));
+  animation-delay: 40s;
+}
+
+body:not(.running):not(.locale-de) #overlays > div:nth-last-child(4) > div {
+  background-image: url("autostadt-ki-und-du/images/speech-bubble-04-en.png");
+}
+
+body:not(.running).locale-de #overlays > div:nth-last-child(4) > div {
+  background-image: url("autostadt-ki-und-du/images/speech-bubble-04-de.png");
 }
